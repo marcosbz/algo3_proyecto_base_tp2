@@ -11,25 +11,28 @@ import edu.fiuba.algo3.modelo.excepciones.RespuestaNoReconocidaException;
  * @author marco
  *
  */
-public class EstrategiaPuntuacionClasico implements EstrategiaPuntuacion {
+public class EstrategiaPuntuacionPenalidad implements EstrategiaPuntuacion {
 
 	@Override
-	public Integer evaluar(RespuestaDesafio respuestaCorrecta, RespuestaDesafio respuestaEvaluada) throws RespuestaNoReconocidaException {
+	public Integer evaluar(RespuestaDesafio respuestaCorrecta, RespuestaDesafio respuestaEvaluada)
+			throws RespuestaNoReconocidaException {
 		// TODO Auto-generated method stub
-		/* Compara cada elemento. Si alguno no coincide devuelve 0. Sino devuelve 1 */
+		/* Compara cada elemento y suma al total. Si alguno no coincide suma -1. Sino suma 1 */
 		List<ElementoRespuesta> listaCorrecta = respuestaCorrecta.getListaElementos();
 		List<ElementoRespuesta> listaEvaluada = respuestaEvaluada.getListaElementos();
 		/* Comparar cada elemento de la lista con == */
-		/* Si un elemento es null, toda la respuesta es invalida y devuelve 0 */
 		if(listaCorrecta.size() != listaEvaluada.size()) throw new RespuestaNoReconocidaException();
-		for(int i = 0; i < listaCorrecta.size(); i++)
+		Integer acumulado = 0;
+		for(int i = 0; i < listaCorrecta.size(); i++) {
 			if(null != listaEvaluada.get(i)) {
-				if(false == listaCorrecta.get(i).igualA(listaEvaluada.get(i))) return 0;
+				if(true == listaCorrecta.get(i).igualA(listaEvaluada.get(i))) acumulado ++;
+				else acumulado--;
 			}
 			else {
-				return 0;
+				acumulado--;
 			}
-		return 1;
+		}
+		return acumulado;
 	}
 
 }

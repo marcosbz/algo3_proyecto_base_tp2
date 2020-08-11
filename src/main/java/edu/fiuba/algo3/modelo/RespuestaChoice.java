@@ -18,8 +18,12 @@ public class RespuestaChoice implements RespuestaDesafio {
 		// TODO Hacer copia de respuestas. Hago solo copia de referencias. Si necesito deep copy despues veo
 		this.listaRespuestas = new ArrayList<ElementoRespuesta>();
 		respuesta.forEach((tempBoolean) -> {
-			ElementoRespuesta nuevoElementoRespuesta = new ElementoBoolean(tempBoolean);
-			listaRespuestas.add(nuevoElementoRespuesta);
+			if(null == tempBoolean)
+				listaRespuestas.add(null);
+			else {
+				ElementoRespuesta nuevoElementoRespuesta = new ElementoBoolean(tempBoolean);
+				listaRespuestas.add(nuevoElementoRespuesta);
+			}
 		});
 	}
 
