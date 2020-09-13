@@ -11,11 +11,11 @@ import org.junit.jupiter.api.Test;
  * @author marco
  *
  */
-class JugadorTest {
+public class JugadorTest {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	public void test() {
+
 	}
 
 }
