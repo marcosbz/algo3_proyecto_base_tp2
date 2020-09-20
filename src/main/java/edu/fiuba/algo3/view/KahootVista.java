@@ -8,7 +8,7 @@ import java.beans.PropertyChangeListener;
 
 import edu.fiuba.algo3.SystemInfo;
 import edu.fiuba.algo3.controller.KahootControlador;
-import javafx.scene.Node;
+import edu.fiuba.algo3.modelo.KahootModelo;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 
@@ -30,10 +30,13 @@ public class KahootVista extends StackPane implements PropertyChangeListener {
 
 	private void start() {
 		// TODO Auto-generated method stub
+		/*
         var javaVersion = SystemInfo.javaVersion();
         var javafxVersion = SystemInfo.javafxVersion();
         var label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        this.getChildren().add(label);
+        */
+        this.getChildren().clear();
+        this.getChildren().add(new KahootVistaInicio(controlador));
 	}
 
 	@Override
@@ -44,7 +47,9 @@ public class KahootVista extends StackPane implements PropertyChangeListener {
 			/* Create corresponding scene and let it handle its events */
 			/* Ask a factory to the model? */
 			/* Must know which of all the scenes to create. Inicio, ObtenerJugadores */
-			Node vista = etapaFactory.createEtapa((String)evt.getNewValue());
+			var vista = etapaFactory.createEtapa((String)evt.getNewValue());
+			var modeloObservable = (KahootModelo) evt.getSource();
+			modeloObservable.addObserver((PropertyChangeListener) vista); /* FIXME: No parece muy prolijo */
 			this.getChildren().clear();
 			this.getChildren().add(vista);
 		}

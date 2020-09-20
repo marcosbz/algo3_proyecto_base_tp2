@@ -11,4 +11,6 @@ public interface Jugador {
 
 	void recibirPuntaje(int i);
 
+	public String getNombre();
+
 }

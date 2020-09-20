@@ -24,4 +24,10 @@ public class JugadorV1 implements Jugador {
 		this.puntaje += puntaje;
 	}
 
+	@Override
+	public String getNombre() {
+		// TODO Auto-generated method stub
+		return this.nombre;
+	}
+
 }
