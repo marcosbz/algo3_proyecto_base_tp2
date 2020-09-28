@@ -9,6 +9,8 @@ import java.beans.PropertyChangeListener;
 import edu.fiuba.algo3.SystemInfo;
 import edu.fiuba.algo3.controller.KahootControlador;
 import edu.fiuba.algo3.modelo.KahootModelo;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 
@@ -52,6 +54,14 @@ public class KahootVista extends StackPane implements PropertyChangeListener {
 			modeloObservable.addObserver((PropertyChangeListener) vista); /* FIXME: No parece muy prolijo */
 			this.getChildren().clear();
 			this.getChildren().add(vista);
+		}
+		else if("KahootNoHayDesafios" == evt.getPropertyName()) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Error Dialog");
+			alert.setHeaderText("Look, an Error Dialog");
+			alert.setContentText("Ooops, there was an error!");
+
+			alert.showAndWait();
 		}
 
 	}

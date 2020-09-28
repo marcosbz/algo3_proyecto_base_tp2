@@ -36,4 +36,10 @@ public class DesafioChoice implements Desafio {
 		
 	}
 
+	@Override
+	public String getConsigna() {
+		// TODO Auto-generated method stub
+		return this.consigna;
+	}
+
 }

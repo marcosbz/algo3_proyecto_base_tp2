@@ -13,4 +13,6 @@ public interface Jugador {
 
 	public String getNombre();
 
+	int getPuntaje();
+
 }

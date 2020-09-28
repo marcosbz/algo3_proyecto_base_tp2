@@ -33,4 +33,10 @@ public class DesafioVOF implements Desafio {
 		this.estrategiaEvaluacion = estrategia;
 	}
 
+	@Override
+	public String getConsigna() {
+		// TODO Auto-generated method stub
+		return this.consigna;
+	}
+
 }

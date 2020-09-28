@@ -53,6 +53,11 @@ public class KahootVistaInsertarJugadores extends StackPane implements PropertyC
 			this.controlador.agregarJugador(userTextField.getText());
 			userTextField.clear();
 		});
+		Button botonSiguiente = new Button("Comenzar");
+		botonSiguiente.setOnAction((event) -> {
+			this.controlador.comenzarJuego();
+		});
+		this.border.setBottom(botonSiguiente);
 		this.hBoxNombre.getChildren().addAll(indicacionNombre, userTextField, botonAceptarNombre, jugadorRepetidoLabel);
 		this.getChildren().add(this.border);
 	}

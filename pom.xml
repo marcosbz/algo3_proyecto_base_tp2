@@ -30,6 +30,11 @@
             <version>${mockito-mockito-core-version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+			<groupId>de.saxsys</groupId>
+			<artifactId>jfx-testrunner</artifactId>
+			<version>1.2</version>
+		</dependency>
     </dependencies>
     <build>
         <testSourceDirectory>src/main/test</testSourceDirectory>

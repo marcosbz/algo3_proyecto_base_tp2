@@ -30,4 +30,10 @@ public class JugadorV1 implements Jugador {
 		return this.nombre;
 	}
 
+	@Override
+	public int getPuntaje() {
+		// TODO Auto-generated method stub
+		return this.puntaje;
+	}
+
 }

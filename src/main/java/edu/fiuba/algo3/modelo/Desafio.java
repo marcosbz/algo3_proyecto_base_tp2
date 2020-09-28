@@ -15,4 +15,6 @@ public interface Desafio {
 
 	void setEstrategia(EstrategiaPuntuacion estrategia);
 
+	String getConsigna();
+
 }
